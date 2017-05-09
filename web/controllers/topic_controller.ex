@@ -21,11 +21,11 @@ defmodule Discuss.TopicController do
 		case Repo.insert(changeset) do
 			{:ok, _topic} -> 
 				conn
-				|> put_flash(:info, "Topic Created")
+				|> put_flash(:info, "Task Created")
 				|> redirect(to: topic_path(conn, :index))
 			{:error, changeset} -> 
 				conn
-				|> put_flash(:error, "Error Creating Topic")
+				|> put_flash(:error, "Error Creating Task")
 				|> render "new.html", changeset: changeset
 		end
 	end
@@ -44,11 +44,11 @@ defmodule Discuss.TopicController do
 		case Repo.update(changeset) do
 			{:ok, _topic} -> 
 				conn
-				|> put_flash(:info, "Topic Updated")
+				|> put_flash(:info, "Task Updated")
 				|> redirect(to: topic_path(conn, :index))
 			{:error, changeset} -> 
 				conn
-				|> put_flash(:error, "Error Updating Topic")
+				|> put_flash(:error, "Error Updating Task")
 				|> render "edit.html", changeset: changeset, topic: old_topic
 		end
 	end
@@ -58,7 +58,7 @@ defmodule Discuss.TopicController do
 		|> Repo.delete!
 
 		conn 
-		|> put_flash(:info, "Topic Deleted")
+		|> put_flash(:info, "Task Deleted")
 		|> redirect(to: topic_path(conn, :index))
 	end
 end
